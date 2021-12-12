@@ -30,12 +30,10 @@
 ## Results:
 
 ### Quantitative Results:
-<p align="center"> <img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/QuantitativeASR.png" width="100%"> </p>
+<p align="center"> <img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/QuantitativeASR.png" width="60%"> </p>
 
 ### Visual Comparisons:
 <p align="center"> <img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/Visual-ASR.png" width="100%"> </p>
-
-
 
 ### Angular Consistency:
 <p align="center"> <a href="https://wyqdatabase.s3.us-west-1.amazonaws.com/DistgLF-AngularSR.mp4"><img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/AngCons-ASR.png" width="80%"></a> </p>
