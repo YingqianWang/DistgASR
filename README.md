@@ -30,7 +30,7 @@
 ## Results:
 
 ### Quantitative Results:
-<p align="center"> <img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/QuantitativeASR.png" width="60%"> </p>
+<p align="center"> <img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/QuantitativeASR.png" width="70%"> </p>
 
 ### Visual Comparisons:
 <p align="center"> <img src="https://raw.github.com/YingqianWang/DistgASR/master/Figs/Visual-ASR.png" width="100%"> </p>
