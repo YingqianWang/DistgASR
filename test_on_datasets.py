@@ -48,11 +48,10 @@ def valid(test_loader, test_name, net):
     ssim_iter_test = []
     for idx_iter, (data, label) in (enumerate(test_loader)):
         data = data.squeeze().to(cfg.device)  # numU, numV, h*angRes, w*angRes
-        label = label.squeeze()
+        label = label.squeeze().to(cfg.device)
         if cfg.crop == False:
-            data, label = Variable(data).to(cfg.device), Variable(label).to(cfg.device)
             with torch.no_grad():
-                outLF = net(data.unsqueeze(0).unsqueeze(0))
+                outLF = net(data.unsqueeze(0).unsqueeze(0).to(cfg.device))
                 outLF = outLF.squeeze()
         else:
             patchsize = cfg.patchsize
@@ -70,6 +69,7 @@ def valid(test_loader, test_name, net):
                         torch.cuda.empty_cache()
                         out = net(tmp.to(cfg.device))
                         subLFout[u, v, :, :] = out.squeeze()
+
             outLF = LFintegrate(subLFout, cfg.angRes_out, patchsize, stride, h0, w0)
 
         psnr, ssim = cal_metrics_RE(label, outLF, cfg.angRes_in, cfg.angRes_out)

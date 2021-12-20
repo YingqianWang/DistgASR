@@ -26,10 +26,10 @@ def parse_args():
     parser.add_argument('--n_steps', type=int, default=15, help='number of epochs to update learning rate')
     parser.add_argument('--gamma', type=float, default=0.5, help='learning rate decaying factor')
 
-    parser.add_argument('--crop', type=bool, default=True)
-    parser.add_argument("--patchsize", type=int, default=128, help="")
+    parser.add_argument('--crop', type=bool, default=True, help="LFs are cropped into patches for validation")
+    parser.add_argument("--patchsize", type=int, default=128, help="LFs are cropped into patches for validation")
 
-    parser.add_argument('--load_pretrain', type=bool, default=True)
+    parser.add_argument('--load_pretrain', type=bool, default=False)
     parser.add_argument('--model_path', type=str, default='./log/DistgASR_Lytro_2x2-7x7.pth.tar')
 
     return parser.parse_args()
@@ -110,16 +110,15 @@ def valid(test_loader, net):
     ssim_iter_test = []
     for idx_iter, (data, label) in (enumerate(test_loader)):
         data = data.squeeze().to(cfg.device)  # numU, numV, h*angRes, w*angRes
-        label = label.squeeze()
+        label = label.squeeze().to(cfg.device)
         if cfg.crop == False:
-            data, label = Variable(data).to(cfg.device), Variable(label).to(cfg.device)
             with torch.no_grad():
-                outLF = net(data.unsqueeze(0).unsqueeze(0))
+                outLF = net(data.unsqueeze(0).unsqueeze(0).to(cfg.device))
                 outLF = outLF.squeeze()
         else:
             uh, vw = data.shape
             h0, w0 = uh // cfg.angRes_in, vw // cfg.angRes_in
-            subLFin = LFdivide(data, cfg.angRes_in, cfg.patchsize, cfg.stride)  # numU, numV, h*angRes, w*angRes
+            subLFin = LFdivide(data, cfg.angRes_in, cfg.patchsize, cfg.patchsize // 2)  # numU, numV, h*angRes, w*angRes
             numU, numV, H, W = subLFin.shape
             subLFout = torch.zeros(numU, numV, cfg.angRes_out * cfg.patchsize, cfg.angRes_out * cfg.patchsize)
 
