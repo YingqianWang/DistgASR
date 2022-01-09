@@ -28,7 +28,8 @@ def parse_args():
 
     parser.add_argument('--crop', type=bool, default=True, help="LFs are cropped into patches for validation")
     parser.add_argument("--patchsize", type=int, default=128, help="LFs are cropped into patches for validation")
-
+    parser.add_argument("--stride", type=int, default=64, help="LFs are cropped into patches for validation")
+    
     parser.add_argument('--load_pretrain', type=bool, default=False)
     parser.add_argument('--model_path', type=str, default='./log/DistgASR_Lytro_2x2-7x7.pth.tar')
 
