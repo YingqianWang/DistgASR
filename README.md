@@ -45,7 +45,7 @@ The datasets used in our paper can be downloaded through [this link](https://stu
 @Article{DistgLF,
     author    = {Wang, Yingqian and Wang, Longguang and Wu, Gaochang and Yang, Jungang and An, Wei and Yu, Jingyi and Guo, Yulan},
     title     = {Disentangling Light Fields for Super-Resolution and Disparity Estimation},
-    journal   = {IEEE TPAMI (under review)}, 
+    journal   = {IEEE TPAMI}, 
     year      = {2022},   
 }
 ```
