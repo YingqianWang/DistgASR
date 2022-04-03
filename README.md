@@ -52,4 +52,4 @@ The datasets used in our paper can be downloaded through [this link](https://stu
 <br>
 
 ## Contact
-**Welcome to raise issues or email to [yingqian.wang@outlook.com](yingqian.wang@outlook.com) for any question regarding this work.**
+**Welcome to raise issues or email to [wangyingqian16@nudt.edu.cn](wangyingqian16@nudt.edu.cn) for any question regarding this work.**
