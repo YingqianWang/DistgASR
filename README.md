@@ -17,9 +17,9 @@
 The datasets used in our paper can be downloaded through [this link](https://stuxidianeducn-my.sharepoint.com/:f:/g/personal/zyliang_stu_xidian_edu_cn/EklAQ0a4ftJLvEfjZ64UoWgBd5he4N37_VSM9u41XfocDQ).
 
 ### Train:
-* Run **`Generate_Data_for_Training.m`** to generate training data.
+* Run **`Generate_Data_for_Training_2x2-7x7.m`** to generate training data.
 * Run `train.py` to perform network training.
-* Checkpoint will be saved to **`./log/`.
+* Checkpoint will be saved to `./log/`.
 
 ### Test:
 * Run `Generate_Data_for_Test.m` to generate test data.
